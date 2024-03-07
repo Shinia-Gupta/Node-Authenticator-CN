@@ -35,6 +35,8 @@
               <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
                 <%if(locals.useremail){%>
                   <li><a class="dropdown-item dropItem text-warning" aria-current="page" href="/logout">Logout</a></li>
+                  
+                  <li><a class="dropdown-item dropItem text-warning" aria-current="page" href="/new-password/<%=locals.useremail%>">Change Password</a></li>
                   <%}else{%>
 
                     <li><a class="dropdown-item dropItem text-warning" aria-current="page" href="/">Register</a></li>

@@ -13,8 +13,11 @@ basicRouter.get('/logout',isAuth,basicController.logout);  //Check this-add auth
 
 basicRouter.post('/forgot-password',basicController.getOtpCheckerPage);
 basicRouter.get('/forgot-password-get-email',basicController.getOtpEmail);
-basicRouter.post('/new-password',basicController.getresetPassword);
+basicRouter.get('/new-password/:email',basicController.getchangePassword);
+basicRouter.get('/new-password',basicController.getresetPassword);
 basicRouter.post('/update-password',basicController.resetPassword);
+
+basicRouter.post('/update-password/:email',basicController.changePassword);
 basicRouter.get('/home',isAuth,basicController.getHome);
 
 export default basicRouter;

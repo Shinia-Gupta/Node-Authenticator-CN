@@ -131,6 +131,27 @@ loginUser = async (req, res, next) => {
   
 };
 
+getchangePassword=(req,res,next)=>{
+  res.render('changePassword',{errMsg:null,email:req.params.email,useremail: req.cookies.email,
+    username: req.cookies.name});
+}
+changePassword=async (req,res,next)=>{
+  const pass1=req.body.pass1;
+  const pass2=req.body.pass2;
+  if(pass1===pass2){
+      const newPass=await bcrypt.hash(pass1,10);
+const userToUpdate=await userModel.findOne({email:req.params.email});
+if(userToUpdate){
+  userToUpdate.password=newPass;
+await userToUpdate.save();
+res.redirect('/login');
+}
+  }else{
+    res.render('changePassword',{errMsg:'Passwords do not match',email:req.params.email,useremail: req.cookies.email,
+    username: req.cookies.name});
+
+  }
+}
   //Function for User signout
   logout = async (req, res, next) => {
     try {
