@@ -29,7 +29,7 @@ hauthRouter.get("/github/success", async (req, res) => {
   }
   const newUser = new userModel({
     name: req.user.username,
-    email: "NA@example.com",
+    email: null,
     password: null,
     githubId: req.user.id,
   });

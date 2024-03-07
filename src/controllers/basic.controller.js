@@ -19,6 +19,10 @@ export class BasicController {
       if (!email || !password) {
         return res.render("register", { errMsg: "Both Fields are required" });
       }
+      const user=await userModel.findOne({email});
+      if(user){
+        return res.render('register',{errMsg:'email already exists'});
+      }
       const hashedPassword = await bcrypt.hash(password, 10); // Hash the password with a salt of 10 rounds
       const newUser = new userModel({
         name: req.body.name,
