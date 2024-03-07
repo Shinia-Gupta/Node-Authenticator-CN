@@ -169,7 +169,7 @@ export class BasicController {
           maxAge: 20 * 60 * 60,
         });
       const resp = await mailSent(email);
-      // console.log(resp);
+      console.log(resp);
       res.render("EnterOtp", { errMsg: null });
     } else {
       res.render("getEmail", { errMsg: "Invalid Email" });
