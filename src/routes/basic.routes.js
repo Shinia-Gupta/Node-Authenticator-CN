@@ -9,7 +9,7 @@ basicRouter.get('/',basicController.getRegister);
 basicRouter.post('/',basicController.registerUser);
 basicRouter.get('/login',basicController.getLogin);
 basicRouter.post('/login',basicController.loginUser);
-basicRouter.get('/logout',isAuth,basicController.logout);  //Check this-add auth
+basicRouter.get('/logout',basicController.logout);  //Check this-add auth
 
 basicRouter.post('/forgot-password',basicController.getOtpCheckerPage);
 basicRouter.get('/forgot-password-get-email',basicController.getOtpEmail);

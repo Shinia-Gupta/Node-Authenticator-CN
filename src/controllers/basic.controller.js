@@ -162,7 +162,8 @@ res.redirect('/login');
         if (err) {
           console.error("Error destroying session:", err);
         }
-        res.redirect("/login"); // Redirect to the login page
+        // res.render("login",{errMsg:null}); 
+        res.redirect('/login'); // Redirect to the login page
       });
     } catch (error) {
       console.error("Logout Error:", error);
