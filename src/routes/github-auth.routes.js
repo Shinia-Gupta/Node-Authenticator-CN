@@ -20,21 +20,25 @@ hauthRouter.get(
 
 hauthRouter.get("/github/success", async (req, res) => {
   // console.log(req.user);
-  const userExists=await userModel.findOne({githubId:req.user.id})
-  if(userExists){
-    return res.render("home", { useremail: 'email@example.com', username: req.user.username });
-
-}
-const newUser=new userModel({
-  name:req.user.username,
-  email:'NA@example.com',
-password:null,
-githubId:req.user.id
-});
-await newUser.save();
-// console.log(req.user)
-    res.render("home", { useremail: 'email@example.com', username: req.user.username });
-
+  const userExists = await userModel.findOne({ githubId: req.user.id });
+  if (userExists) {
+    return res.render("home", {
+      useremail: "email@example.com",
+      username: req.user.username,
+    });
+  }
+  const newUser = new userModel({
+    name: req.user.username,
+    email: "NA@example.com",
+    password: null,
+    githubId: req.user.id,
+  });
+  await newUser.save();
+  // console.log(req.user)
+  res.render("home", {
+    useremail: "email@example.com",
+    username: req.user.username,
+  });
 });
 
 hauthRouter.get("/github/failure", (req, res) => {
