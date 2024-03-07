@@ -3,14 +3,14 @@ import express from "express";
 import passport from "../controllers/googleAuth.controller.js";
 import { isAuth } from "../middlewares/isAuth.middleware.js";
 import { userModel } from "../models/user.model.js";
-const authRouter = express.Router();
+const gauthRouter = express.Router();
 
-authRouter.get(
+gauthRouter.get(
   "/google",
   passport.authenticate("google", { scope: ["email", "profile"] })
 );
 
-authRouter.get(
+gauthRouter.get(
   "/google/callback",
   passport.authenticate("google", {
     successRedirect: "/auth/google/success",
@@ -18,7 +18,7 @@ authRouter.get(
   })
 );
 
-authRouter.get("/google/success", async (req, res) => {
+gauthRouter.get("/google/success", async (req, res) => {
   // console.log(req.user.displayName,req.user.emails[0],req.user.id);
   const userExists=await userModel.findOne({email:req.user.emails[0].value})
   if(userExists){
@@ -37,8 +37,8 @@ await newUser.save();
 
 });
 
-authRouter.get("/google/failure", (req, res) => {
+gauthRouter.get("/google/failure", (req, res) => {
   res.render("login", { errMsg: "User could not be logged in" });
 });
 
-export default authRouter;
+export default gauthRouter;

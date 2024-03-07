@@ -6,8 +6,9 @@ import bodyParser from "body-parser";
 import path from "path";
 import passport from "passport";
 
-import authRouter from "./src/routes/auth.routes.js";
+import gauthRouter from "./src/routes/google-auth.routes.js";
 import basicRouter from "./src/routes/basic.routes.js";
+import hauthRouter from "./src/routes/github-auth.routes.js";
 
 const app = express();
 app.use(express.json());
@@ -48,6 +49,6 @@ app.use(expressEjsLayouts);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/',basicRouter);
-app.use('/auth',authRouter);
-
+app.use('/auth',gauthRouter);
+app.use('/hauth',hauthRouter);
 export default app;

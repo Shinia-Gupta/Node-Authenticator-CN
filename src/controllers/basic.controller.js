@@ -96,6 +96,8 @@ loginUser = async (req, res, next) => {
         const validUser = await userModel.findOne({ email });
         if(validUser.password===null && validUser.googleId){
           res.render('login',{errMsg:"Please signin with google"})
+        }else if(validUser.password===null && validUser.githubId){
+          res.render('login',{errMsg:"Please signin with github"})
         }else{
         if (validUser) {
             const isPasswordValid = await bcrypt.compare(password, validUser.password);
