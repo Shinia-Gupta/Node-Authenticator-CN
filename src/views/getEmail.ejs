@@ -1,0 +1,18 @@
+<h1 class="text-white mb-4 mt-3">Get OTP</h1>
+<%if(errMsg){%>
+    <div class="alert alert-danger" role="alert">
+      <%=errMsg%>
+    </div>
+    <%}else{%>
+      
+    <div></div><%}%>
+<form action="/forgot-password" method="post">
+   
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Enter your registered Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+      <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+    </div>
+     <button type="submit" class="btn btn-primary">Send Email</button>
+ 
+  </form>

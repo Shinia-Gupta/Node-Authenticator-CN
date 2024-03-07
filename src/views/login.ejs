@@ -1,0 +1,28 @@
+<h1 class="text-white mb-4 mt-3">Login</h1>
+<%if(errMsg){%>
+    <div class="alert alert-danger" role="alert">
+      <%=errMsg%>
+    </div>
+    <%}else{%>
+      
+    <div></div><%}%>
+<form action="/login" method="post">
+   
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+      <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>
+   
+    <div class="d-flex justify-content-center align-items-center"> <button type="submit" class="btn btn-primary mx-2">Sign in</button>
+    <a class="btn btn-primary mx-2" aria-current="page"
+                    href="/forgot-password-get-email">Forgot Password</a></div>
+                    <div class="text-center text-secondary">---------------------------------------OR---------------------------------------</div>
+                    <div class="d-flex justify-content-center align-items-center">                    <a class="btn btn-danger text-center" aria-current="page"
+                    href="/auth/google">Google</a></div>
+
+  </form>
