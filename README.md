@@ -73,4 +73,4 @@ Node Authenticator is a web application that provides user authentication functi
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
 ## Live Project
-[Live]()
+[Live](https://node-authenticator-cn.onrender.com)
