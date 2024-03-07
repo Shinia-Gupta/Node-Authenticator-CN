@@ -42,53 +42,7 @@ export class BasicController {
   };
 
   //User Login Function
-  //   loginUser = async (req, res, next) => {
-  //     try {
-  //       const { email, password } = req.body;
-  //       if (!email || !password) {
-  //         return res.render("login", { errMsg: "Both Fields are required",isAuth:req.cookies.user });
-  //       }
-  //       const validUser = await userModel.findOne({ email });
-  //       if (validUser) {
-  //         const isPasswordValid = await bcrypt.compare(
-  //           password,
-  //           validUser.password
-  //         ); // Compare the hashed password with the provided password
-  //         if (isPasswordValid) {
-  //           // Authentication successful
-  //           //   const token = await jwt.sign({ user: validUser }, process.env.JWT_SECRET, { expiresIn: "2h" });
-  //           //   res.cookie("jwttoken", token, { maxAge: 2 * 60 * 60 * 1000 });
-  //           //   const students = await studModel.find({});
-  //         //   res.cookie('email',email,{
-  //         //     maxAge:2*60*60*60
-  //         //   })
-  //           res.cookie('user',validUser,{maxAge:24*60*60*60});
-  //           req.session.isAuth=true;
-  //           req.session.alreadyAuth=true;
-  //           res.render("home", {
-  //             useremail: validUser.email,
-  //             username: validUser.name,
-  //             isAuth:req.cookies.user,
-  //             successMsg:null
-  //           });
-  //         } else {
-  //           // Invalid credentials
-  //           res.render("login", { errMsg: "Invalid Credentials!" ,isAuth:req.cookies.user});
-  //         }
-  //       } else {
-  //         // Email not found
-  //         res.render("login", {
-  //           errMsg: "Email does not exist! Please register to continue",isAuth:req.cookies.user
-  //         });
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //       res.render("login", {
-  //         errMsg: "Something went wrong on our end. Please try again later",isAuth:req.cookies.user
-  //       });
-  //     }
-  //   };
-  loginUser = async (req, res, next) => {
+   loginUser = async (req, res, next) => {
     try {
       const { email, password } = req.body;
       if (!email) {
