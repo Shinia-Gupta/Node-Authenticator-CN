@@ -54,7 +54,7 @@ Node Authenticator is a web application that provides user authentication functi
 
 3. Set up environment variables:
    - Create a `.env` file in the root directory.
-   - Define the required environment variables, such as `DB_URL`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `GOOGLE_CLIENT_ID`, and `GOOGLE_CLIENT_SECRET`.
+   - Define the required environment variables, such as `DB_URL`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `PORT` and `HOSTNAME`.
 
 4. Run the application:
 
